@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aadyam – Technical Magazine</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="dark-mode">
+
+<!-- Loading Screen -->
+<div id="loader">
+  <div class="loader-inner">
+    <div class="loader-logo">AADYAM</div>
+    <div class="loader-bar"><div class="loader-fill"></div></div>
+    <div class="loader-text">Initializing...</div>
+  </div>
+</div>
+
+<!-- Navigation -->
+<nav id="navbar">
+  <div class="nav-container">
+    <div class="nav-logo">
+      <span class="logo-mark">◈</span>
+      <span>AADYAM</span>
+    </div>
+    <ul class="nav-links">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#latest">Latest Issue</a></li>
+      <li><a href="#archive">Archive</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#feedback">Feedback</a></li>
+    </ul>
+    <div class="nav-actions">
+      <button class="theme-toggle" id="themeToggle" title="Toggle theme">
+        <span class="toggle-icon">◐</span>
+      </button>
+      <button class="nav-cta">Subscribe</button>
+      <button class="hamburger" id="hamburger">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#home">Home</a>
+    <a href="#latest">Latest Issue</a>
+    <a href="#archive">Archive</a>
+    <a href="#about">About</a>
+    <a href="#feedback">Feedback</a>
+  </div>
+</nav>
+
+<!-- Hero Section -->
+<section id="home" class="hero">
+  <canvas id="heroCanvas"></canvas>
+  <div class="hero-grid-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-badge">
+      <span class="badge-dot"></span>
+      <span>Volume 2025 · Now Available</span>
+    </div>
+    <h1 class="hero-title">
+      <span class="title-line">The Future</span>
+      <span class="title-line italic-serif">Starts Here</span>
+    </h1>
+    <p class="hero-sub">AADYAM — A student-led technical magazine at the frontier of engineering, research, and innovation. Ideas that shape tomorrow.</p>
+    <div class="hero-actions">
+      <button class="btn-primary" onclick="openMagazine('latest')">
+        <span>Read Latest Issue</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </button>
+      <button class="btn-ghost" onclick="smoothScroll('#archive')">
+        <span>Browse Archive</span>
+      </button>
+    </div>
+    <div class="hero-stats">
+      <div class="stat"><span class="stat-num">12+</span><span class="stat-label">Issues Published</span></div>
+      <div class="stat-divider"></div>
+      <div class="stat"><span class="stat-num">500+</span><span class="stat-label">Student Contributors</span></div>
+      <div class="stat-divider"></div>
+      <div class="stat"><span class="stat-num">20k+</span><span class="stat-label">Readers Worldwide</span></div>
+    </div>
+  </div>
+  <div class="hero-visual">
+    <div class="magazine-float">
+      <div class="mag-cover-hero">
+        <div class="mag-cover-inner">
+          <div class="cover-glow"></div>
+          <div class="cover-content">
+            <div class="cover-issue">ISSUE XII · 2025</div>
+            <div class="cover-title-mag">AADYAM</div>
+            <div class="cover-theme">QUANTUM HORIZONS</div>
+            <div class="cover-art">
+              <div class="circuit-art"></div>
+            </div>
+            <div class="cover-bottom">Technical Magazine · Engineering Excellence</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-scroll-hint">
+    <div class="scroll-line"></div>
+    <span>SCROLL</span>
+  </div>
+</section>
+
+<!-- Ticker -->
+<div class="ticker-wrap">
+  <div class="ticker">
+    <span>QUANTUM COMPUTING</span><span class="ticker-dot">◆</span>
+    <span>AI & MACHINE LEARNING</span><span class="ticker-dot">◆</span>
+    <span>ROBOTICS</span><span class="ticker-dot">◆</span>
+    <span>NANOTECH</span><span class="ticker-dot">◆</span>
+    <span>BIOTECHNOLOGY</span><span class="ticker-dot">◆</span>
+    <span>SPACE SYSTEMS</span><span class="ticker-dot">◆</span>
+    <span>CYBERSECURITY</span><span class="ticker-dot">◆</span>
+    <span>GREEN ENERGY</span><span class="ticker-dot">◆</span>
+    <span>EMBEDDED SYSTEMS</span><span class="ticker-dot">◆</span>
+    <span>DATA SCIENCE</span><span class="ticker-dot">◆</span>
+    <span>QUANTUM COMPUTING</span><span class="ticker-dot">◆</span>
+    <span>AI & MACHINE LEARNING</span><span class="ticker-dot">◆</span>
+    <span>ROBOTICS</span><span class="ticker-dot">◆</span>
+    <span>NANOTECH</span><span class="ticker-dot">◆</span>
+    <span>BIOTECHNOLOGY</span><span class="ticker-dot">◆</span>
+    <span>SPACE SYSTEMS</span><span class="ticker-dot">◆</span>
+  </div>
+</div>
+
+<!-- Latest Issue Section -->
+<section id="latest" class="latest-section">
+  <div class="section-container">
+    <div class="section-label">
+      <span class="label-line"></span>
+      <span>LATEST ISSUE</span>
+    </div>
+    <h2 class="section-title reveal">Featured Edition</h2>
+    <div class="latest-layout">
+      <div class="latest-cover-wrap reveal-left">
+        <div class="latest-cover" onclick="openMagazine('latest')">
+          <div class="cover-pages">
+            <div class="cover-page back-page"></div>
+            <div class="cover-page main-page">
+              <div class="cover-spine"></div>
+              <div class="mag-cover-content">
+                <div class="mc-header">
+                  <span>VOL XII</span>
+                  <span>2025</span>
+                </div>
+                <div class="mc-title">AADYAM</div>
+                <div class="mc-theme">QUANTUM<br>HORIZONS</div>
+                <div class="mc-visual">
+                  <div class="quantum-viz">
+                    <div class="q-ring r1"></div>
+                    <div class="q-ring r2"></div>
+                    <div class="q-ring r3"></div>
+                    <div class="q-dot"></div>
+                  </div>
+                </div>
+                <div class="mc-footer">TECHNICAL MAGAZINE · STUDENT INNOVATION</div>
+              </div>
+            </div>
+          </div>
+          <div class="cover-hover-label">Click to Read</div>
+        </div>
+      </div>
+      <div class="latest-info reveal-right">
+        <div class="issue-tag">ISSUE XII · 2025</div>
+        <h3 class="issue-title">Quantum Horizons:<br>Beyond Classical Computing</h3>
+        <p class="issue-desc">Our landmark 12th edition explores the frontier of quantum mechanics and its transformative potential in computing, cryptography, and material science. Featuring breakthrough research from our engineering students.</p>
+        <div class="issue-features">
+          <div class="feature-item">
+            <span class="fi-icon">⬡</span>
+            <div>
+              <div class="fi-title">Quantum Error Correction</div>
+              <div class="fi-sub">A novel approach to fault-tolerant computing</div>
+            </div>
+          </div>
+          <div class="feature-item">
+            <span class="fi-icon">⬡</span>
+            <div>
+              <div class="fi-title">Neuromorphic Architectures</div>
+              <div class="fi-sub">Brain-inspired silicon for next-gen AI</div>
+            </div>
+          </div>
+          <div class="feature-item">
+            <span class="fi-icon">⬡</span>
+            <div>
+              <div class="fi-title">Photonic Integrated Circuits</div>
+              <div class="fi-sub">Light-speed data transmission on chip</div>
+            </div>
+          </div>
+        </div>
+        <div class="issue-actions">
+          <button class="btn-primary" onclick="openMagazine('latest')">
+            <span>Open Magazine</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+          </button>
+          <button class="btn-outline" onclick="downloadPDF('latest')">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+            <span>Download PDF</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Archive Section -->
+<section id="archive" class="archive-section">
+  <div class="section-container">
+    <div class="section-label">
+      <span class="label-line"></span>
+      <span>MAGAZINE ARCHIVE</span>
+    </div>
+    <div class="archive-header">
+      <h2 class="section-title reveal">Previous Editions</h2>
+      <div class="search-wrap reveal">
+        <input type="text" id="searchInput" placeholder="Search issues..." oninput="filterIssues(this.value)">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+      </div>
+    </div>
+    <div class="magazine-grid" id="magazineGrid">
+      <!-- Cards injected by JS -->
+    </div>
+    <div class="load-more-wrap">
+      <button class="btn-ghost load-more-btn" id="loadMoreBtn" onclick="loadMore()">Load More Issues</button>
+    </div>
+  </div>
+</section>
+
+<!-- About Section -->
+<section id="about" class="about-section">
+  <div class="about-bg-art">
+    <div class="about-circle c1"></div>
+    <div class="about-circle c2"></div>
+  </div>
+  <div class="section-container">
+    <div class="about-grid">
+      <div class="about-left reveal-left">
+        <div class="section-label">
+          <span class="label-line"></span>
+          <span>ABOUT US</span>
+        </div>
+        <h2 class="section-title">Engineering<br><em>Tomorrow's</em><br>Leaders Today</h2>
+        <p class="about-para">Aadyam is a student-led technical magazine born from the belief that knowledge should transcend classroom walls. We are a platform where engineering students publish original research, innovative ideas, and technical insights that shape the future.</p>
+        <p class="about-para">Founded in the spirit of academic excellence, Aadyam serves as a bridge between theoretical learning and real-world application — a space where creativity meets rigorous engineering thought.</p>
+        <div class="about-values">
+          <div class="value-chip">Innovation</div>
+          <div class="value-chip">Research</div>
+          <div class="value-chip">Collaboration</div>
+          <div class="value-chip">Excellence</div>
+        </div>
+      </div>
+      <div class="about-right reveal-right">
+        <div class="about-cards">
+          <div class="about-card ac1">
+            <div class="ac-icon">◈</div>
+            <div class="ac-title">Student-Driven</div>
+            <div class="ac-text">Every article, design, and editorial decision is made by students, for students.</div>
+          </div>
+          <div class="about-card ac2">
+            <div class="ac-icon">◉</div>
+            <div class="ac-title">Peer Reviewed</div>
+            <div class="ac-text">All technical content passes rigorous peer review by faculty and senior students.</div>
+          </div>
+          <div class="about-card ac3">
+            <div class="ac-icon">◐</div>
+            <div class="ac-title">Open Access</div>
+            <div class="ac-text">Knowledge is free. All issues are available digitally at no cost to any reader.</div>
+          </div>
+          <div class="about-card ac4">
+            <div class="ac-icon">◇</div>
+            <div class="ac-title">Multi-Disciplinary</div>
+            <div class="ac-text">From CS to biotech, we cover every domain of modern engineering and science.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Feedback Section -->
+<section id="feedback" class="feedback-section">
+  <div class="section-container">
+    <div class="feedback-inner">
+      <div class="feedback-left reveal-left">
+        <div class="section-label">
+          <span class="label-line"></span>
+          <span>FEEDBACK</span>
+        </div>
+        <h2 class="section-title">Share Your<br><em>Thoughts</em></h2>
+        <p class="feedback-sub">We value every perspective. Whether you're a reader, contributor, or collaborator — your feedback shapes Aadyam.</p>
+        <div class="contact-info">
+          <div class="ci-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            <span>aadyam@college.edu</span>
+          </div>
+          <div class="ci-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <span>Department of Engineering</span>
+          </div>
+        </div>
+      </div>
+      <div class="feedback-right reveal-right">
+        <form class="feedback-form" id="feedbackForm" onsubmit="submitFeedback(event)">
+          <div class="form-group">
+            <label>Your Name</label>
+            <input type="text" id="fname" placeholder="John Doe" required>
+            <span class="form-error" id="fnameError"></span>
+          </div>
+          <div class="form-group">
+            <label>Email Address</label>
+            <input type="email" id="femail" placeholder="john@example.com" required>
+            <span class="form-error" id="femailError"></span>
+          </div>
+          <div class="form-group">
+            <label>Subject</label>
+            <select id="fsubject">
+              <option value="general">General Feedback</option>
+              <option value="article">Article Suggestion</option>
+              <option value="correction">Correction / Error</option>
+              <option value="contribute">Want to Contribute</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Message</label>
+            <textarea id="fmessage" rows="5" placeholder="Write your message..." required></textarea>
+            <span class="form-error" id="fmessageError"></span>
+          </div>
+          <button type="submit" class="btn-primary submit-btn">
+            <span id="submitText">Send Message</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 2L11 13M22 2L15 22 11 13 2 9l20-7z"/></svg>
+          </button>
+        </form>
+        <div class="success-msg" id="successMsg">
+          <div class="success-icon">✓</div>
+          <div class="success-title">Message Sent!</div>
+          <div class="success-text">Thank you for your feedback. We'll respond within 48 hours.</div>
+          <button class="btn-ghost" onclick="resetForm()">Send Another</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="footer-top">
+    <div class="footer-brand">
+      <div class="footer-logo">
+        <span class="logo-mark">◈</span>
+        <span>AADYAM</span>
+      </div>
+      <p class="footer-tagline">Student Technical Magazine<br>Engineering Excellence Since 2014</p>
+      <div class="social-links">
+        <a href="#" class="social-link" title="Twitter/X">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+        </a>
+        <a href="#" class="social-link" title="LinkedIn">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+        </a>
+        <a href="#" class="social-link" title="Instagram">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+        </a>
+        <a href="#" class="social-link" title="GitHub">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+        </a>
+      </div>
+    </div>
+    <div class="footer-nav">
+      <div class="footer-col">
+        <div class="footer-col-title">Magazine</div>
+        <a href="#latest">Latest Issue</a>
+        <a href="#archive">Archive</a>
+        <a href="#" onclick="openMagazine('latest');return false;">Read Online</a>
+        <a href="#" onclick="downloadPDF('latest');return false;">Download PDF</a>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Explore</div>
+        <a href="#about">About Aadyam</a>
+        <a href="#feedback">Contact Us</a>
+        <a href="#">Editorial Board</a>
+        <a href="#">Submit Article</a>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Topics</div>
+        <a href="#">AI & ML</a>
+        <a href="#">Robotics</a>
+        <a href="#">Quantum Tech</a>
+        <a href="#">Biotechnology</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 Aadyam Technical Magazine. All rights reserved.</span>
+    <span class="footer-built">Built with ♥ by Engineering Students</span>
+  </div>
+</footer>
+
+<!-- Magazine Reader Modal -->
+<div class="magazine-modal" id="magazineModal">
+  <div class="modal-overlay" onclick="closeMagazine()"></div>
+  <div class="modal-content">
+    <div class="modal-header">
+      <div class="modal-title" id="modalTitle">AADYAM — ISSUE XII 2025</div>
+      <div class="modal-controls">
+        <button class="modal-btn" onclick="zoomOut()" title="Zoom Out">−</button>
+        <button class="modal-btn" onclick="zoomReset()" title="Reset Zoom">⊙</button>
+        <button class="modal-btn" onclick="zoomIn()" title="Zoom In">+</button>
+        <button class="modal-btn download-btn" onclick="downloadPDF('current')" title="Download">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+        </button>
+        <button class="modal-close" onclick="closeMagazine()">✕</button>
+      </div>
+    </div>
+    <div class="reader-wrap" id="readerWrap">
+      <div class="reader-viewport" id="readerViewport">
+        <div class="flipbook" id="flipbook">
+          <!-- Pages injected by JS -->
+        </div>
+      </div>
+    </div>
+    <div class="reader-footer">
+      <button class="nav-arrow prev-arrow" id="prevBtn" onclick="prevPage()">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+      </button>
+      <div class="page-thumbs" id="pageThumbs"></div>
+      <div class="page-indicator" id="pageIndicator">Page 1 / 8</div>
+      <button class="nav-arrow next-arrow" id="nextBtn" onclick="nextPage()">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- Custom Cursor -->
+<div class="cursor-dot" id="cursorDot"></div>
+<div class="cursor-outline" id="cursorOutline"></div>
+
+<script src="data.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
