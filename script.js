@@ -220,7 +220,12 @@ function renderMagazineGrid() {
       <div class="card-info">
         <div class="card-year">${mag.year} · ISSUE ${mag.issue}</div>
         <div class="card-title">${mag.title}</div>
-        <button class="card-btn" onclick="openMagazine('${mag.id}')">Read Issue</button>
+        <div class="card-actions">
+          <button class="card-btn" onclick="openMagazine('${mag.id}')">Read Issue</button>
+          ${mag.pdfPath && mag.pdfPath !== '#' ? `<button class="card-btn card-btn-download" onclick="event.stopPropagation();downloadPDF('${mag.id}')" title="Download PDF">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+          </button>` : ''}
+        </div>
       </div>
     `;
     grid.appendChild(card);
@@ -276,7 +281,11 @@ function buildReader() {
   flipbook.innerHTML = '';
   thumbsContainer.innerHTML = '';
 
-  pageData.forEach((page, i) => {
+  const mag = magazines.find(m => m.id === currentIssueId) || magazines[0];
+  const pagesToUse = mag.pages || pageData;
+  totalPages = pagesToUse.length;
+
+  pagesToUse.forEach((page, i) => {
     const el = document.createElement('div');
     el.className = 'flip-page';
     el.id = `page-${i}`;
@@ -502,13 +511,22 @@ function applyZoom() {
 //  MODAL OPEN/CLOSE
 // =====================
 function openMagazine(issueId) {
+  const mag = magazines.find(m => m.id === issueId) || magazines[0];
+
+  // If the magazine has a real PDF path, open it directly in a new tab for a high-performance native PDF reading experience!
+  if (mag && mag.pdfPath && mag.pdfPath !== '#') {
+    window.open(mag.pdfPath, '_blank');
+    showToast(`📖 Opening Issue ${mag.issue} PDF in a new tab...`);
+    return;
+  }
+
+  // Fallback for older mock issues: open the virtual book reader modal
   currentIssueId = issueId;
   currentPage = 0;
   zoomLevel = 1;
 
   const modal = document.getElementById('magazineModal');
   const title = document.getElementById('modalTitle');
-  const mag = magazines.find(m => m.id === issueId) || magazines[0];
 
   if (title) title.textContent = `AADYAM — ISSUE ${mag.issue} · ${mag.year}`;
 
