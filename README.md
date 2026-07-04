@@ -33,7 +33,7 @@ Plain **HTML**, **CSS**, and **vanilla JavaScript** — no framework, no build s
 ├── 📄 index.html      → Page structure and markup
 ├── 🎨 style.css        → All styling (theme, layout, animations)
 ├── ⚙️  script.js        → Interactivity (reader, filters, form, canvas animation)
-├── 🗃️  data.js          → Magazine/issue data (edit this to add new issues)
+├── 🗃️  data.js          → Magazine/issue data 
 ├── 📕 Aadyam_2026.pdf  → Issue XVII (2026) — Viksit Bharat @ 2047
 └── 📗 Aadyam_2025.pdf  → Issue XVI (2025) — Electronics in Music
 ```
@@ -57,9 +57,6 @@ Open `data.js` and add a new object to the `magazines` array at the top, followi
   pdfPath: 'Aadyam_2027.pdf',
   pages: [ /* cover, toc, articles, backcover — see existing issues for format */ ]
 }
-```
-
-> ⚠️ **Heads up:** `pdfPath` must *exactly* match the filename you upload (including case and underscores vs. spaces). A mismatch will silently break the "Read" and "Download" buttons for that issue. 🙃
 
 ---
 
