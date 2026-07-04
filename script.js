@@ -632,15 +632,29 @@ function submitFeedback(e) {
   if (btn) btn.disabled = true;
   if (btnText) btnText.textContent = 'Sending...';
 
-  // Simulate submission
-  setTimeout(() => {
-    document.getElementById('feedbackForm').style.display = 'none';
-    const successMsg = document.getElementById('successMsg');
-    if (successMsg) successMsg.classList.add('visible');
-    showToast('✅ Message sent successfully!');
-    if (btn) btn.disabled = false;
-    if (btnText) btnText.textContent = 'Send Message';
-  }, 1500);
+  // Submit to Formspree
+  fetch('https://formspree.io/f/aadyam026@gmail.com', {
+    method: 'POST',
+    headers: { 'Accept': 'application/json' },
+    body: new FormData(document.getElementById('feedbackForm'))
+  })
+    .then(response => {
+      if (response.ok) {
+        document.getElementById('feedbackForm').style.display = 'none';
+        const successMsg = document.getElementById('successMsg');
+        if (successMsg) successMsg.classList.add('visible');
+        showToast('✅ Message sent successfully!');
+      } else {
+        showToast('❌ Something went wrong. Please try again or email us directly.');
+      }
+    })
+    .catch(() => {
+      showToast('❌ Something went wrong. Please try again or email us directly.');
+    })
+    .finally(() => {
+      if (btn) btn.disabled = false;
+      if (btnText) btnText.textContent = 'Send Message';
+    });
 }
 
 function showFieldError(fieldId, message) {
