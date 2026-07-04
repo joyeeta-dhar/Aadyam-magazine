@@ -2,7 +2,7 @@
 
 ✨ AADYAM is the annual technical magazine of the **Department of Electronics Engineering, Yeshwantrao Chavan College of Engineering (YCCE), Nagpur**. This repository contains the source code for its digital home — a single-page site to browse, read, and download every issue.
 
-🔗 **Live site:** _add your Vercel URL here once deployed_
+🔗 **Live site:** (https://aadyam-magazine.vercel.app/)
 
 ---
 
