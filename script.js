@@ -633,7 +633,7 @@ function submitFeedback(e) {
   if (btnText) btnText.textContent = 'Sending...';
 
   // Submit to Formspree
-  fetch('https://formspree.io/f/aadyam026@gmail.com', {
+  fetch('https://formspree.io/f/mdarybpd', {
     method: 'POST',
     headers: { 'Accept': 'application/json' },
     body: new FormData(document.getElementById('feedbackForm'))
